@@ -1,0 +1,19 @@
+<mat-card class="add-new-item-container">
+  <h1 class="header">WebShop-Add-Item</h1>
+<mat-form-field>
+  <input matInput placeholder="Enter item title" [(ngModel)]="item.title">
+</mat-form-field>
+<mat-form-field>
+  <input matInput placeholder="Enter item count" [(ngModel)]="item.availableCount">
+</mat-form-field>
+<mat-form-field>
+  <input matInput placeholder="Enter item description" [(ngModel)]="item.description">
+</mat-form-field>
+<mat-form-field>
+  <input matInput placeholder="Enter item price" [(ngModel)]="item.price">
+</mat-form-field>
+
+<mat-card-actions>
+  <button mat-raised-button color="primary" (click)="addNewItemClick()">Add</button>
+</mat-card-actions>
+</mat-card>

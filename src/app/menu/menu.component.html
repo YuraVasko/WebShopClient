@@ -1,0 +1,46 @@
+<div class="main-menu">
+  <button mat-button [matMenuTriggerFor]="catalog" class="menu-text">Catalog</button>
+  <mat-menu #catalog="matMenu">
+    <a routerLink="/catalog">
+      <button mat-menu-item>
+        All
+      </button>
+    </a>
+    <a *ngIf="userRole=='Admin' "routerLink="/add/new/item">
+      <button mat-menu-item>
+        Add new item
+      </button>
+    </a>
+  </mat-menu>
+  <button *ngIf="userRole=='Admin'"  mat-button [matMenuTriggerFor]="discount" class="menu-text">Discounts</button>
+  <mat-menu #discount="matMenu">
+    <a routerLink="/all/discount">
+      <button mat-menu-item>
+        All
+      </button>
+    </a>
+    <a routerLink="/add/new/discount">
+      <button mat-menu-item>
+        Add new discount
+      </button>
+    </a>
+  </mat-menu>
+  <button *ngIf="isAuthorize && userRole=='User'" mat-button [matMenuTriggerFor]="cart" class="menu-text">Cart</button>
+  <mat-menu #cart="matMenu"> 
+      <a routerLink="/cart">
+        <button mat-menu-item>Current</button>
+      </a>
+      <a routerLink="/purchase">
+        <button mat-menu-item>History</button>
+      </a>
+  </mat-menu>
+  
+  <button *ngIf="isAuthorize" mat-button [matMenuTriggerFor]="account" class="menu-text">Account</button>
+  <mat-menu #account="matMenu">
+    <a routerLink="/login">
+      <button mat-menu-item>
+        Log out
+      </button>
+    </a>
+  </mat-menu>
+</div>

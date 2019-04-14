@@ -1,0 +1,14 @@
+<mat-card class="add-discount-container">
+  <h1 class="header">WebShop-Add-Discount</h1>
+  <mat-form-field>
+    <input matInput placeholder="Enter discount percentage" [(ngModel)]="discount.percentage">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Enter discount description" [(ngModel)]="discount.description">
+  </mat-form-field>
+
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="addNewDiscountClick()">Add</button>
+  </mat-card-actions>
+</mat-card>

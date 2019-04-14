@@ -1,0 +1,9 @@
+.main-menu {
+    background: #673ab7; 
+    width: 100%;
+}
+
+.menu-text {
+    color: white;
+    font: bold;
+}

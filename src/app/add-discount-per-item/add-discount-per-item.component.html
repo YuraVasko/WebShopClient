@@ -1,0 +1,27 @@
+<div class="item-card">
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>{{item.title}}</mat-card-title>
+      <mat-card-subtitle>Id: {{item.itemId}}</mat-card-subtitle>
+      <mat-card-subtitle>Price: {{item.price}}$</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="http://cdn.onlinewebfonts.com/svg/img_148071.png" alt="Item photo">
+    <mat-card-content>
+      <p>
+        {{item.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <h4>Select discount</h4>
+        <mat-form-field>
+          <mat-label>Discount</mat-label>
+          <mat-select [(value)]="selected">
+            <mat-option *ngFor="let discount of discounts" [value]="discount.id">
+              {{discount.description}} - {{discount.percentage}}%
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      <button mat-button (click)="addDiscountPerItem()">Submit Discount</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

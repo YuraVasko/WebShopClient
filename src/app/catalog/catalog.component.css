@@ -1,0 +1,11 @@
+.itemCard {
+    padding-left: 100px;
+    padding-top: 50px; 
+    display: inline-block;
+    width: 400px;
+}
+
+.header{
+    color: #673ab7;
+    height: 50px;
+}

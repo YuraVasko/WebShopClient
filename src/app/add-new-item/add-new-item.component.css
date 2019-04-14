@@ -1,0 +1,15 @@
+.add-new-item-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    background: #e8e5e5;
+}
+
+.header{
+    color: #673ab7;
+    height: 50px;
+    margin-top: -5px;
+}

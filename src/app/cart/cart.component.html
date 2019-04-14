@@ -1,0 +1,31 @@
+<h1 class="header">This is your cart</h1>
+<span class="button"><button mat-button (click) = "clearCartClick()">Clear Cart</button></span>
+<span class="button"><button mat-button (click) = "submitCartClick ()">Submit purchase</button></span>
+<br/>
+<div>
+  <button mat-button (click)="previousPage()">Previous</button>
+  <h3 style="display: inline-block">{{pageNumber}}</h3>
+  <button mat-button (click)="nextPage()">Next page</button>
+</div>
+<div class="itemCard" *ngFor="let item of items; let i = index">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{item.title}}</mat-card-title>
+      <mat-card-subtitle>Id: {{item.itemId}}</mat-card-subtitle>
+      <mat-card-subtitle>Price: {{ item.discount!= null ? item.price - (item.price* item.discount.percentage / 100) : item.price}}$</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="http://cdn.onlinewebfonts.com/svg/img_148071.png" alt="Item photo">
+    <mat-card-content>
+      <p>
+        {{item.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <mat-grid-list cols="4" rowHeight="40px">
+            <mat-grid-tile  [colspan]="2" [rowspan]="1">
+                <button mat-button (click) = "deleteItemFromCart(item.itemId)">Delete from cart</button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-actions>
+  </mat-card>
+</div>

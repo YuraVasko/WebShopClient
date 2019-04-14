@@ -1,0 +1,22 @@
+<mat-card class="login-container">
+  <h1 class="header">WebShop-Register</h1>
+<mat-form-field>
+  <input matInput placeholder="Enter your email" [(ngModel)]="newUser.login">
+</mat-form-field>
+<mat-form-field>
+  <input matInput placeholder="Enter your first name" [(ngModel)]="newUser.firstName">
+</mat-form-field>
+<mat-form-field>
+  <input matInput placeholder="Enter your last name" [(ngModel)]="newUser.lastName">
+</mat-form-field>
+<mat-form-field>
+  <input matInput placeholder="Enter your password" [type]="'password'" [(ngModel)]="newUser.password">
+</mat-form-field>
+<mat-form-field>
+  <input matInput placeholder="Confirm password" [type]="'password'" [(ngModel)]="newUser.confirmedPassword">
+</mat-form-field>
+
+<mat-card-actions>
+  <button mat-raised-button color="primary" (click)="registerClick()">Register</button>
+</mat-card-actions>
+</mat-card>

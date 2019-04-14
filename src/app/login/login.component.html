@@ -1,0 +1,15 @@
+<mat-card class="login-container">
+    <h1 class="header">WebShop-Login</h1>
+  <mat-form-field>
+    <input matInput placeholder="Enter your email" [(ngModel)]="email">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Enter your password" [type]="'password'" [(ngModel)]="password">
+  </mat-form-field>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="signInClick()">Sign In</button>
+    <a routerLink="/register">
+      <button mat-raised-button color="primary">Sign Up</button>
+    </a>
+  </mat-card-actions>
+</mat-card>
