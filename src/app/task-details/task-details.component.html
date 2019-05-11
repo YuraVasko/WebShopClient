@@ -1,0 +1,38 @@
+<button style="display:inline-block; margin: 10px;" mat-raised-button color="primary" (click)="cancel()">Cancel</button>
+<button style="display:inline-block; margin: 10px;" mat-raised-button color="primary" (click)="pause()">Pause</button>
+<button style="display:inline-block; margin: 10px;" mat-raised-button color="primary" (click)="resume()">Resume</button>
+<br>
+<h3 style="display:inline-block; margin-left: 10px;">Task id: </h3>
+<h3 style="display:inline-block; margin-left: 10px;">{{task.taskId}}</h3>
+<br>
+<h3 style="display:inline-block; margin-left: 10px;">Task status: </h3>
+<h3 style="display:inline-block; margin-left: 10px;">{{task.percentageStatus}}%</h3>
+<br>
+<h3 style="display:inline-block; margin-left: 10px;">Server Host Name: </h3>
+<h3 style="display:inline-block; margin-left: 10px;">{{task.serverHostName}}</h3>
+<br>
+<h3 style="display:inline-block; margin-left: 10px;">Server Id: </h3>
+<h3 style="display:inline-block; margin-left: 10px;">{{task.serverId}}</h3>
+<h3>Entered Matrixes</h3>
+<h3>First Matrix:</h3>
+<div style="margin-top:10px;" *ngFor="let row of firstMatrix;">
+    <span *ngFor="let element of row;">
+        <span style="display:inline-block; margin-left: 10px;">{{element}}</span>
+    </span>
+</div>
+<br>
+<h3>Second Matrix:</h3>
+<div style="margin-top:10px;" *ngFor="let row of secondMatrix;">
+    <span class="itemCard" *ngFor="let element of row;">
+        <span style="display:inline-block; margin-left: 10px;">{{element}}</span>
+    </span>
+</div>
+<div *ngIf="task.percentageStatus == 100">
+    <h3>Result Matrix:</h3>
+    <div style="margin-top:10px;" *ngFor="let row of resultMatrix;">
+        <span *ngFor="let element of row;">
+            <span style="display:inline-block; margin-left: 10px;">{{element}}</span>
+        </span>
+        <br>
+    </div>
+</div>

@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
       .subscribe((data) => {
         localStorage.setItem("currentUser", data.access_token);
         this.userService.loggedEmmit.emit(null);
-        this.router.navigate(['catalog'])
+        this.router.navigate(['new/task'])
       },
         error => window.alert("Something goes wrong")
       );

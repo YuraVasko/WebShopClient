@@ -1,5 +1,18 @@
 <div class="main-menu">
-  <button mat-button [matMenuTriggerFor]="catalog" class="menu-text">Catalog</button>
+    <button mat-button [matMenuTriggerFor]="task" class="menu-text">Task</button>
+    <mat-menu #task="matMenu">
+      <a routerLink="tasks">
+        <button mat-menu-item>
+          All tasks
+        </button>
+      </a>
+      <a routerLink="new/task">
+        <button mat-menu-item>
+          Add new task
+        </button>
+      </a>
+    </mat-menu>
+  <!-- <button mat-button [matMenuTriggerFor]="catalog" class="menu-text">Catalog</button>
   <mat-menu #catalog="matMenu">
     <a routerLink="/catalog">
       <button mat-menu-item>
@@ -42,5 +55,5 @@
         Log out
       </button>
     </a>
-  </mat-menu>
+  </mat-menu> -->
 </div>

@@ -28,6 +28,10 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { CartComponent } from './cart/cart.component';
 import { CartHistoryComponent } from './cart-history/cart-history.component';
+import { HomeTaskComponent } from './home-task/home-task.component';
+import { TaskDetailsComponent } from './task-details/task-details.component';
+import { TaskListComponent } from './task-list/task-list.component';
+import { TaskNewComponent } from './task-new/task-new.component';
 
 
 
@@ -43,7 +47,11 @@ import { CartHistoryComponent } from './cart-history/cart-history.component';
     AddNewDiscountComponent,
     DiscountsComponent,
     CartComponent,
-    CartHistoryComponent
+    CartHistoryComponent,
+    HomeTaskComponent,
+    TaskDetailsComponent,
+    TaskListComponent,
+    TaskNewComponent
   ],
   imports: [
     BrowserModule,
@@ -103,6 +111,18 @@ import { CartHistoryComponent } from './cart-history/cart-history.component';
       {
         path: 'purchase',
         component: CartHistoryComponent
+      },
+      {
+        path: 'new/task',
+        component: TaskNewComponent
+      },
+      {
+        path: 'task/details/:taskId',
+        component: TaskDetailsComponent
+      },
+      {
+        path: 'tasks',
+        component: TaskListComponent
       }
     ])
   ],

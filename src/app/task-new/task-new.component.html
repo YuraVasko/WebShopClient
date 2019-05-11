@@ -1,0 +1,10 @@
+<h3>Enter number of rows in matrix:</h3>
+<input matInput placeholder="Enter number of rows(columns)" [(ngModel)]="N" style="width:150px;">
+<br>
+<br>
+  <button mat-raised-button color="primary" (click)="multiplyRandomMatrixes()">Get random matrix</button>
+  <button style="margin-left: 50px;" mat-raised-button color="primary" (click)="multiplyEnteredMatrixes()">Submit entered matrixes</button>
+<br>
+<h3>Enter matrix elements:</h3>
+<br>
+<textarea [(ngModel)]="Condition" name="Comments" mdInput placeholder="Comments" rows="3" matInput style="height: 400px; width: 400px;"></textarea>
