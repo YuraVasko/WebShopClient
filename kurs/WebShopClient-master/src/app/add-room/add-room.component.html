@@ -1,0 +1,18 @@
+<mat-card class="addRoomCard">
+  <mat-card-title class="addRoomTitle addRoomTitleText"><span style="vertical-align: sub">New Room</span>
+  </mat-card-title>
+  <mat-form-field class="inputField">
+    <input matInput placeholder="Enter room number" [formControl]="roomNumber" required>
+  </mat-form-field>
+  <mat-form-field class="inputField">
+    <input matInput placeholder="Enter room capacity" [formControl]="roomCapacity" required>
+  </mat-form-field>
+  <mat-form-field class="inputField">
+    <input matInput placeholder="Enter additional info" [formControl]="additionalInfo">
+  </mat-form-field>
+  <div class="inputField"><div class="tagName">Is computer class: </div><input type="checkbox" [(ngModel)]="this.newRoom.IsComputerClass" data-md-icheck /></div>
+  <br/>
+  <div class="inputField"><div class="tagName">Has projector: </div><input type="checkbox" [(ngModel)]="this.newRoom.HasProjector" data-md-icheck /></div>
+  <br/>
+  <button mat-flat-button color="primary" class="submitButton" (click)="addRoomClick()">Add room</button>
+</mat-card>

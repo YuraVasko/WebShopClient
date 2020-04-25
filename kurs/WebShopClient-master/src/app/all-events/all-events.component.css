@@ -1,0 +1,22 @@
+table {
+    margin-top: 20px; 
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+.paginator {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.filteringTable {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+ 
+  .inputField {
+    margin-left: 20px;
+}

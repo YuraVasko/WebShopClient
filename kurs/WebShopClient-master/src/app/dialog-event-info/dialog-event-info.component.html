@@ -1,0 +1,26 @@
+<div class="dialog">
+  <h1 mat-dialog-title>{{eventDetails.event.eventName}}</h1>
+  <div mat-dialog-content>
+    <mat-list>
+      <mat-list-item>Event description: {{eventDetails.event.description}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Organizer: {{eventDetails.organizer}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item> Visitors: {{eventDetails.visitorsCount}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item> Room#: {{eventDetails.event.roomNumber}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item> Start time: {{eventDetails.event.startDate.toLocaleString() | date:'short'}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item> Duration (in minutes): {{eventDetails.event.duration}}</mat-list-item>
+    </mat-list>
+  </div>
+  <div mat-dialog-actions>
+    <button *ngIf="!eventDetails.isVisited" style="margin-left: 10px;" mat-flat-button color="primary"
+      (click)="goToEventClick()">Go to event</button>
+    <button *ngIf="eventDetails.isVisited" style="margin-left: 10px;" mat-flat-button color="primary"
+      (click)="cancelEventGoingClick()">Cancel event going</button>
+    <button *ngIf="eventDetails.isUserOrganizer" style="margin-left: 10px;" mat-flat-button color="primary" (click)="deleteEventClick()">Delete
+      Event</button>
+  </div>
+</div>

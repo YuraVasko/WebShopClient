@@ -1,0 +1,19 @@
+<mat-card class="loginCard">
+  <mat-card-title class="loginTitle loginTitleText"><span style="vertical-align: sub">SIGN IN</span></mat-card-title>
+  <mat-form-field class="inputField">
+    <input matInput placeholder="Enter your email" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="inputField">
+    <input matInput placeholder="Enter your password" [type]="'password'" [formControl]="password" required>
+  </mat-form-field>
+  <mat-grid-list cols="2" rowHeight="100px">
+    <mat-grid-tile [colspan]=1 [rowspan]=1>
+      <button mat-flat-button color="primary" class="submitButton" (click)="loginClick()">Login</button>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]=1 [rowspan]=1>
+      <p>Forgot Password?</p>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
+<app-ask-about-account></app-ask-about-account>

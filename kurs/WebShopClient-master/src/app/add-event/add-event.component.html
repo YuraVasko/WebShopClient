@@ -1,0 +1,69 @@
+<mat-horizontal-stepper [linear]="isLinear" #stepper class="stepperMain">
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Choose room </ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Date" formControlName="date" [matDatepicker]="picker" (focus)="picker.open()"
+          readonly>
+      </mat-form-field>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-form-field class="inputField">
+          <input matInput placeholder="Start Hour" formControlName="startHour">
+      </mat-form-field>
+      <mat-form-field class="inputField">
+          <input matInput placeholder="Start Minute" formControlName="startMinute">
+      </mat-form-field>
+      <mat-form-field class="inputField">
+          <input matInput placeholder="Duration(in minutes)" formControlName="duration">
+      </mat-form-field>
+      <br>
+      <br>
+      <br>
+      <mat-form-field>
+          <input matInput placeholder="Min capacity" formControlName="minCapacity">
+      </mat-form-field>
+      <mat-checkbox class="inputField" formControlName="isComputerClass">Is Computer Class?</mat-checkbox>
+      <mat-checkbox class="inputField" formControlName="hasProjector">Has Projector?</mat-checkbox>
+      <br>
+      <br>
+      <br>
+      <button mat-flat-button color="primary" (click)="findRoomClick()">Find room</button>
+      <mat-form-field class="inputField">
+          <mat-label>Select room</mat-label>
+          <mat-select formControlName="roomNumber">
+            <mat-option *ngFor="let roomNumber of roomsNumbers" [value]="roomNumber">
+              {{roomNumber}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Enter data about event</ng-template>
+      <mat-form-field class="inputFieldSecondStep">
+        <input matInput placeholder="Event name" formControlName="eventName"  required>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="inputFieldSecondStep">
+        <input matInput placeholder="Event description" formControlName="eventDescription" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+      Now you are done and can post your event.
+    <div style="margin-top: 20px;">
+      <button mat-flat-button color="primary" (click)="addEventClick()"> Post event</button>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

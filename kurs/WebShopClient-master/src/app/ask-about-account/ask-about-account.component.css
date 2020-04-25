@@ -1,0 +1,12 @@
+.askAboutAccoutnCard{
+    max-width: 400px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-top: 40px;
+  }
+
+  .submitButton{
+    width: 150px;
+  }

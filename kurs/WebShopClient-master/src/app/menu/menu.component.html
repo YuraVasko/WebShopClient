@@ -1,0 +1,40 @@
+<div class="main-menu">
+  <a routerLink="/main/page">
+    <button mat-button class="menu-text">Home page</button>
+  </a>
+  <button mat-button [matMenuTriggerFor]="room" class="menu-text">Room</button>
+  <mat-menu #room="matMenu">
+    <a routerLink="/rooms">
+      <button mat-menu-item>
+        All
+      </button>
+    </a>
+    <a *ngIf="userRole=='Admin' || userRole=='Secretary'" routerLink="/add/room">
+      <button mat-menu-item>
+        Add new room
+      </button>
+    </a>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="event" class="menu-text">Events</button>
+  <mat-menu #event="matMenu">
+    <a routerLink="/events">
+      <button mat-menu-item>
+        All
+      </button>
+    </a>
+    <a routerLink="/add/event">
+      <button mat-menu-item>
+        Add new event
+      </button>
+    </a>
+  </mat-menu>
+
+  <button *ngIf="isAuthorize" mat-button [matMenuTriggerFor]="account" class="menu-text">Account</button>
+  <mat-menu #account="matMenu">
+    <a routerLink="/login">
+      <button mat-menu-item>
+        Log out
+      </button>
+    </a>
+  </mat-menu>
+</div>

@@ -1,0 +1,91 @@
+<div class="filteringTable">
+  <mat-accordion class="example-headers-align">
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Search by room equipment
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+        <input matInput placeholder="Min capacity" [(ngModel)]="filter.capacity">
+      </mat-form-field>
+      <form [formGroup]="options" style="display:inline-block;">
+        <mat-checkbox style="margin-left:20px;" formControlName="isComputerClass">Is Computer Class?</mat-checkbox>
+        <mat-checkbox style="margin-left:20px;" formControlName="hasProjector">Has Projector?</mat-checkbox>
+      </form>
+      <button style="margin-left:20px;" mat-flat-button color="primary" (click)="filterClick()">Filter</button>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Search free room by selected time
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+        <input matInput placeholder="Date" [(ngModel)]="filter.dateTime" [matDatepicker]="picker"
+          (focus)="picker.open()" readonly>
+      </mat-form-field>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-form-field class="inputField">
+        <input matInput placeholder="Start Hour" [(ngModel)]="filter.hour">
+      </mat-form-field>
+      <mat-form-field class="inputField">
+        <input matInput placeholder="Start Minute" [(ngModel)]="filter.minute">
+      </mat-form-field>
+      <mat-form-field class="inputField">
+        <input matInput placeholder="Duration(in minutes)" [(ngModel)]="filter.duration">
+      </mat-form-field>
+      <button class="inputField" mat-flat-button color="primary" (click)="filterClick()">Filter</button>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> RoomId </th>
+      <td mat-cell *matCellDef="let element"> {{element.roomId}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="roomNumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Room No </th>
+      <td mat-cell *matCellDef="let element"> {{element.roomNumber}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="capacity">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Capacity </th>
+      <td mat-cell *matCellDef="let element"> {{element.capacity}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="hasProjector">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Has Projector </th>
+      <td mat-cell *matCellDef="let element"> {{element.hasProjector}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="isComputerClass">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Is Computer Class </th>
+      <td mat-cell *matCellDef="let element"> {{element.isComputerClass}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <a routerLink="/add/event">
+          <button mat-flat-button color="primary" (click)="bookClick(element.RoomId)">Book</button>
+        </a>
+        <button *ngIf="userRole=='Admin'" style="margin-left: 10px;" mat-flat-button color="primary"
+          (click)="deleteClick(element.RoomId)">Delete</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <div class="paginator">
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

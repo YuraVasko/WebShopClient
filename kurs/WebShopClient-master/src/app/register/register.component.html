@@ -1,0 +1,31 @@
+<mat-card class="registrationCard">
+  <mat-card-title class="registrationTitle registrationTitleText"><span style="vertical-align: sub">SIGN UP</span></mat-card-title>
+  <mat-form-field class="inputField">
+    <input matInput placeholder="Enter your email" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="inputField">
+    <input matInput placeholder="Enter your first name" [formControl]="firstName" required>
+  </mat-form-field>
+  <mat-form-field class="inputField">
+    <input matInput placeholder="Enter your last name" [formControl]="lastName" required>
+  </mat-form-field>
+  <mat-form-field class="inputField">
+    <input matInput placeholder="Enter your student number" [formControl]="lastName">
+  </mat-form-field>
+  <mat-form-field class="inputField">
+    <input matInput placeholder="Enter your password" [type]="'password'" [formControl]="password" required>
+  </mat-form-field>
+  <mat-form-field class="inputField">
+    <input matInput placeholder="Repeat your password" [type]="'password'" [formControl]="confirmedPassword" required>
+  </mat-form-field>
+  <mat-grid-list cols="2" rowHeight="100px">
+      <mat-grid-tile [colspan]=1 [rowspan]=1>
+          <button mat-flat-button color="primary" class="submitButton" (click)="registerClick()">Register</button>
+      </mat-grid-tile>  
+      <mat-grid-tile [colspan]=1 [rowspan]=1>
+        <button mat-flat-button color="primary" class="submitButton" (click)="loginClick()">Login</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+</mat-card>
+

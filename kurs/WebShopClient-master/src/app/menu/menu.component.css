@@ -1,0 +1,11 @@
+.main-menu {
+    background: #673ab7; 
+    width: 101%;
+    margin-top:  -10px;
+    margin-left:  -7px;
+}
+
+.menu-text {
+    color: white;
+    font: bold;
+}
